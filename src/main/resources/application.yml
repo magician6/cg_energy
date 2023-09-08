@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.wilmar.cg_energy.entity
+  configuration:
+    cache-enabled: false
+# 通用 Mapper配置
+mapper:
+  identity: SQLSERVER
+#  SQLSERVER
+  style: camelhump
+  mappers:
+    - cn.wilmar.cg_energy.util.CgEnergyMapper
+
+logging:
+  level:
+    cn.wilmar.cg_energy: debug

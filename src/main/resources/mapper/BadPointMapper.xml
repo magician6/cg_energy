@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wilmar.cg_energy.mapper.BadPointMapper">
+    <!--<cache type=""-->
+    <resultMap id="BaseResultMap" type="cn.wilmar.cg_energy.entity.BadPoint">
+        <result property="factoryId" column="factory_id" javaType="Long" />
+        <result property="fullName" column="full_name" javaType="String" jdbcType="VARCHAR" />
+        <result property="dataType" column="data_type" javaType="String" jdbcType="CHAR" />
+        <result property="queryTime" column="query_time" />
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        a.factory_id,a.full_name,a.data_type,a.query_time
+    </sql>
+
+    <select id="getAllBadPoints" resultMap="BaseResultMap">
+        select <include refid="BaseColumnList" /> from BI_Plant_BadPoint a
+    </select>
+
+    <delete id="deleteByFactoryIdAndDataType">
+        delete from BI_Plant_BadPoint where factory_id = #{factoryId} and data_type = #{dataType}
+    </delete>
+
+</mapper>

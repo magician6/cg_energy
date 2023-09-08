@@ -1,0 +1,23 @@
+logging:
+  level:
+    root: warn
+    cn.wilmar.cg_energy: info
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:sqlserver://cdhsqlprd01.privatelink.database.chinacloudapi.cn:1433;DatabaseName=gcday;encrypt=true;trustServerCertificate=true
+    username: cdh_bi_exec
+    password: 4O&nGBALGzTb
+    druid:
+      filters: config
+      connection-properties: config.decrypt=false
+      initial-size: 1
+      min-idle: 1
+      max-active: 8
+      stat-view-servlet:
+        enabled: true
+cg_energy:
+  cpm:
+    point-path: https://internal-apphub.wilmar.cn/CPM2_IS/rest/ShowScreen/EnergySensors
+  pims:
+    point-value-path: https://pimsapi.wilmar.cn/api/OSI/PIDACN/BulkLoadPointValues
