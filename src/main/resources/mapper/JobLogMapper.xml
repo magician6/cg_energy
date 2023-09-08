@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wilmar.cg_energy.mapper.JobLogMapper">
+    <!--<cache type=""-->
+    <resultMap id="BaseResultMap" type="cn.wilmar.cg_energy.entity.JobLog">
+        <result property="factoryId" column="factory_id" javaType="Long" />
+        <result property="jobName" column="job_name" javaType="String" jdbcType="NVARCHAR" />
+        <result property="executeStatus" column="execute_status" javaType="Boolean" jdbcType="BIT" />
+        <result property="finishTime" column="finish_time" />
+        <result property="executeTime" column="execute_time" javaType="Long" jdbcType="BIGINT" />
+        <result property="successQuantity" column="success_quantity" javaType="Integer" jdbcType="TINYINT" />
+        <result property="badQuantity" column="bad_quantity" javaType="Integer" jdbcType="TINYINT" />
+        <result property="failMessage" column="fail_message" javaType="String" jdbcType="NVARCHAR" />
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        a.factory_id,a.job_name,a.execute_status,a.finish_time,a.execute_time,a.success_quantity,a.bad_quantity,a.fail_message
+    </sql>
+
+
+</mapper>
