@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.amazon.redshift.jdbc42.Driver
+
+    type: com.alibaba.druid.pool.DruidDataSource
+    #com.alibaba.druid.pool.DruidDataSource
+
+    url: jdbc:redshift://kdsa1uat-redshift-cluster.cxvowp49opna.cn-northwest-1.redshift.amazonaws.com.cn:8639/energy_test
+    #jdbc:sqlserver://cdhsqltest01.privatelink.database.chinacloudapi.cn:1433;DatabaseName=enterprisedata;encrypt=true;trustServerCertificate=true
+
+    username: energy_user
+    password: KZfpL0xtSfGfpKpK
+
+    druid:
+      filters: config
+      #      connection-properties: config.decrypt=true;config.decrypt.key=${cg_energy.db.public-key}
+      connection-properties: config.decrypt=false
+      initial-size: 1
+      min-idle: 1
+      max-active: 8
+      test-while-idle: false
+      stat-view-servlet:
+        enabled: true
+
+#      validation-query: SELECT 1
+
+cg_energy:
+  db:
+    public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJtxskBbztz8ewXd//hZlHaJe5yG9x8z3u2I9RinBleGu4A0JGxlhNs6ArYt12xuDtj21QVcN2erpdKmK8DY/JMCAwEAAQ==
+  cpm:
+    point-path: https://internal-apphub.wilmar.cn/CPM2_IS/rest/ShowScreen/EnergySensors
+  #    point-path: https://devhub.wilmarapps.com/CPM2_IS/rest/ShowScreen/EnergySensors
+  pims:
+    point-value-path: https://pimsapi.wilmar.cn/api/OSI/PIDACN/BulkLoadPointValues
+#    point-value-path: https://pimsapi-dev.wilmar.cn/api/OSI/PIDACN/BulkLoadPointValues
