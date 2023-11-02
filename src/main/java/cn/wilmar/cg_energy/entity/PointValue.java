@@ -89,4 +89,11 @@ public class PointValue {
     private Boolean isRenewEnergy;
     // 持久化
     private Boolean persistence;
+    // 集团产线
+    private String groupLine;
+    // 集团产线描述
+    private String groupLineDesc;
+    // 集团产线描述（英文）
+    private String groupLineDescEn;
+
 }

@@ -39,5 +39,10 @@ public class PointDto {
     private String energyClassDesc;
     @JsonProperty("IsRenewEnergy")
     private int isRenewEnergy;
-
+    @JsonProperty("GroupLine")
+    private String groupLine;
+    @JsonProperty("GroupLineDesc")
+    private String groupLineDesc;
+    @JsonProperty("GroupLineDescEn")
+    private String groupLineDescEn;
 }

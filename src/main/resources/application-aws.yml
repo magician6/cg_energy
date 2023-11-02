@@ -6,7 +6,6 @@ spring:
     #com.alibaba.druid.pool.DruidDataSource
 
     url: jdbc:redshift://kdsa1uat-redshift-cluster.cxvowp49opna.cn-northwest-1.redshift.amazonaws.com.cn:8639/energy_test
-    #jdbc:sqlserver://cdhsqltest01.privatelink.database.chinacloudapi.cn:1433;DatabaseName=enterprisedata;encrypt=true;trustServerCertificate=true
 
     username: energy_user
     password: KZfpL0xtSfGfpKpK
@@ -28,8 +27,8 @@ cg_energy:
   db:
     public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJtxskBbztz8ewXd//hZlHaJe5yG9x8z3u2I9RinBleGu4A0JGxlhNs6ArYt12xuDtj21QVcN2erpdKmK8DY/JMCAwEAAQ==
   cpm:
-    point-path: https://internal-apphub.wilmar.cn/CPM2_IS/rest/ShowScreen/EnergySensors
-  #    point-path: https://devhub.wilmarapps.com/CPM2_IS/rest/ShowScreen/EnergySensors
+#    point-path: https://internal-apphub.wilmar.cn/CPM2_IS/rest/ShowScreen/EnergySensors
+    point-path: https://devhub.wilmarapps.com/CPM2_IS/rest/ShowScreen/EnergySensors
   pims:
     point-value-path: https://pimsapi.wilmar.cn/api/OSI/PIDACN/BulkLoadPointValues
 #    point-value-path: https://pimsapi-dev.wilmar.cn/api/OSI/PIDACN/BulkLoadPointValues

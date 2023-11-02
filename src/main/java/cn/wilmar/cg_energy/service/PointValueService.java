@@ -471,6 +471,9 @@ public class PointValueService {
                     .queryDate(queryDate)
                     .queryTime(queryTime)
                     .isRenewEnergy(point.getIsRenewEnergy() == 1 ? true : false)
+                    .groupLine(point.getGroupLine())
+                    .groupLineDesc(point.getGroupLineDesc())
+                    .groupLineDescEn(point.getGroupLineDescEn())
                     .build();
             //BeanUtils.copyProperties(pointValue, point);
             pointValues.add(pointValue);

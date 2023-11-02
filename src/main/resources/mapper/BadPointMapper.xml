@@ -22,4 +22,9 @@
         delete from BI_Plant_BadPoint where factory_id = #{factoryId} and data_type = #{dataType}
     </delete>
 
+    <insert id="insertBadPoint">
+        insert into BI_Plant_BadPoint
+        (factory_id, full_name, data_type, query_time) values (#{entity.factoryId},#{entity.fullName},#{entity.dataType},#{entity.queryTime})
+    </insert>
+
 </mapper>
