@@ -23,8 +23,9 @@
     </delete>
 
     <insert id="insertBadPoint">
-        insert into BI_Plant_BadPoint
-        (factory_id, full_name, data_type, query_time) values (#{entity.factoryId},#{entity.fullName},#{entity.dataType},#{entity.queryTime})
+        insert into bi_plant_badpoint
+        (factory_id, full_name, data_type, query_time)
+        values (#{entity.factoryId},#{entity.fullName},#{entity.dataType},#{entity.queryTime})
     </insert>
 
 </mapper>

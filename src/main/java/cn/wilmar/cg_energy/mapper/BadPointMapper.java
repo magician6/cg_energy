@@ -18,4 +18,5 @@ public interface BadPointMapper extends CgEnergyMapper<BadPoint> {
     List<BadPoint> getAllBadPoints();
 
     int deleteByFactoryIdAndDataType(@Param("factoryId") Long factoryId, @Param("dataType") String dataType);
+    int insertBadPoint(@Param("entity") PointValue pointValue);
 }

@@ -94,6 +94,13 @@
             <version>1.2.1.1001</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3-->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.12.467</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
@@ -102,6 +109,7 @@
             <url>http://redshift-maven-repository.s3-website-us-east-1.amazonaws.com/release</url>
         </repository>
     </repositories>
+
 
     <build>
         <plugins>

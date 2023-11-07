@@ -15,14 +15,11 @@ import cn.wilmar.cg_energy.vm.PointValueDto;
 import cn.wilmar.cg_energy.vm.PointValueQueryDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -317,6 +314,11 @@ public class PointValueService {
             PointValueDto valueDto = (PointValueDto)resultMap.get("pointValueDto");
             List<PointValueDto.Result> results = valueDto.getResults();
             List<PointValue> pointValues =(List<PointValue>) resultMap.get("pointValues");
+            // ADD BY QIANWEI FOR S3 PUT
+            S3Service s3S = new S3Service();
+            s3S.AmazonS3Util();
+            s3S.sourFileName = "C:/TEST_2023-11-07" + ".CSV";
+            ListToCsvConverter listCsv = new ListToCsvConverter();
 
             // 失败的点位List
             List<PointValue> badPoints = new ArrayList<>();
@@ -372,6 +374,11 @@ public class PointValueService {
             for (PointValue pointValue : goodList) {
                 pointValueMapper.insertData(pointValue);
             }
+//            // ADD BY QIANWEI 点位数据转换为CSV，暂存本地
+//            listCsv.convert(goodList,s3S.sourFileName);
+//            // ADD BY QIANWEI 本地csv文件写入S3
+//            s3S.fileObjKeyName = "goodList_" +  System.currentTimeMillis() + ".csv";
+//            s3S.putObject(s3S.sourFileName,s3S.fileObjKeyName);
 
             long end = System.currentTimeMillis();
             log.info("工厂" + factory.getCode() + "更新 " + goodList.size() + " 条数据，耗时：" + (end - start) + "ms");
